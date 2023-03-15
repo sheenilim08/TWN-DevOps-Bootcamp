@@ -1,0 +1,5 @@
+# Using VMware Workstation since I already am using this software instead of VBox.
+1. Installed Ubuntu 22.04 (CLI only)
+2. package manager "apt".
+3. software manager is snap
+4. shell is /bin/bash

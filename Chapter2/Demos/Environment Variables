@@ -1,0 +1,16 @@
+export DB_USERNAME=dbuser
+export DB_PASSWORD=secretpassword
+export DB_NAME=prod_db
+
+# shows all environment variables
+printenv
+
+# unset the env variable
+unset DB_USERNAME
+
+# per user shell specific configuration, can be used to house the env variables specific to a user (add the export command at the end of the File, then run "source /home/username/.bashrc")
+# you can add $PATH=$PATH:/path/to/your/program
+/home/username/.bashrc
+
+# system wide environment file where env variables can be added
+/etc/environments
