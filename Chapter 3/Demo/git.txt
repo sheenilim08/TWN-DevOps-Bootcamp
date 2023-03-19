@@ -1,0 +1,64 @@
+
+
+# you can connect your local code to a repository if the project was not created via a repository.
+# this will create the .git file to track the files for your local repository
+1. git init 
+
+# connect your local repo to the remote repo.
+# origin - the name of the destination (origin is the common name for the remote repository)
+# <remote-repo location> - is the git address of the repo
+2. git remote add origin <remote-repo location>
+Example: git remote add origin git@github.com:sheenilim08/OfficeDocs-Support.git
+
+# connect the branches on each repos
+# origin - the name of the destination (origin is the common name for the remote repository)
+# master - is the local branch in your local repository you want to connect to the remote repository
+3. git push --set-upstream origin master
+
+# update your local branch with all the changes from the remote repo (includes brances)
+4. git pull
+
+# common branch prefix names 
+# main, dev, feature, bugfix
+# example git branch bugfix/ticket-2445
+
+# create a branch in your local repo
+5. git branch <branchname>
+
+# switching to a branch
+6. git checkout branchname
+
+# listing all branches
+7. git branch
+
+# creating and switch to new branch
+8. git checkout -b branchname
+
+# pushing local branch changes to remote repo, this would be very similar to item 3
+# origin - would be the master branch of the remote repository
+# <branchname> - is the local branch name you are working on to push to the remote repo
+9. git push --set-upstream origin <branname>
+
+# deleting branches
+# when a branch from the remote repo is deleted, you should also delete your local copy
+10. git branch -d <branchname>
+
+# pull and merge your changes
+# this pulls any changes from the remote repo and commit any changes to your local branch (merging them), them Pull request it again to the remote repo.
+# if there are files that git cannot resolve, you will need to intervine on which lines of code you need to keep
+11. git pull -r
+
+# Once .gitignore is populated with files or folders to ignore, you will need to tell git to stop monitoring it from its previous tracked state.
+12. git rm -r --cached <folder_or_file>
+
+# Git Stash - is a state where you can temporarily put your working changes to a saved state
+# this may come in handy if you want to switch branches but you dont want to discard your current working files.
+# you will need to be in the brach you are working on before issuing the command.
+13. git stash
+14. git stash pop -> to reopen your working files.
+
+# show all previous commits - commits will be shown as hash
+# you can switch to the previous versions of your working files based on the the last commit checking branch,
+# git checkout <hashcode>
+15. git logs
+
