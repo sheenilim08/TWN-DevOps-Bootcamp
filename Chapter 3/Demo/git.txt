@@ -5,4 +5,6 @@
 # This will discard any changes made after commit history you are going for
 16. git reset --hard HEAD~1
 
-# add this line
+# By default git reset will use --soft if --hard, you can use --soft if you want to go back to a commit hisotry but do not want to discard your working files
+17. git reset HEAD~1 
+17. git reset --soft HEAD~1
