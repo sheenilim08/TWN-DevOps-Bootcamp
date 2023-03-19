@@ -2,4 +2,7 @@
 # You may revery to your previous commit (undoing a commit)
 # You need to identify how many commit you want to travel back, so if you look at the git log, you can count 1 (after the HEAD commit) or foreach commit you want to go back to.
 # In the example below you want to go back to the last 1 commit
+# This will discard any changes made after commit history you are going for
 16. git reset --hard HEAD~1
+
+# add this line
