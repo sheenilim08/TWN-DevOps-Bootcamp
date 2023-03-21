@@ -1,0 +1,10 @@
+git rm -r --cached .idea/
+git rm -r --cached .DS_Store
+git rm -r --cached out
+git rm -r --cached build
+
+# create .gitignore 
+# .idea
+# .DS_Store
+# out
+# build

@@ -1,0 +1,15 @@
+git checkout bugfix/excercise4
+
+# update build.gradle
+
+git merge master
+
+git add .
+git commit -m "Excercise 6 - Update build.gradle"
+git push
+
+# resolve conflict manually
+
+git add .
+git commit -m "Excercise 6 - Update build.gradle"
+git push

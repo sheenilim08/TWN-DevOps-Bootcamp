@@ -1,0 +1,6 @@
+# update bruno role
+
+git add .
+git commit -m "Update Bruno Role"
+
+git reset --hard HEAD~1

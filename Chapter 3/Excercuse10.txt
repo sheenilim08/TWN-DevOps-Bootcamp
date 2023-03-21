@@ -1,0 +1,6 @@
+git branch -d feature/excercise3
+git branch -d bugfix/excercise4
+
+# delete remote repo-side branch
+git push origin --delete feature/excercise3
+git push origin --delete bugfix/excercise4

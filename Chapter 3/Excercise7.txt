@@ -1,0 +1,14 @@
+# fix the spelling issue.
+git add .
+git commit -m "Update Spelling"
+
+# updated image
+git add .
+git commit -m "Update Image"
+
+git push
+
+git log
+# Commit hash 6a169a1d92580d31c2cbb42dc01bdddd8edfae88 was my commit for the image
+
+git revert 6a169a1d92580d31c2cbb42dc01bdddd8edfae88

@@ -1,0 +1,9 @@
+git checkout -b feature/excercise3
+
+# update build.gradle file
+# update index.html
+
+git add .
+git commit -m "Feature - Excercise 3"
+git push
+git push --set-upstream origin feature/excercise3

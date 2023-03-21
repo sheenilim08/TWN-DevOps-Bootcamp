@@ -1,0 +1,9 @@
+git checkout -b bugfix/excercise4
+
+# fixed spelling error
+
+git add .
+git commit -m "Fixed Spelling"
+
+git push
+git push --set-upstream origin bugfix/excercise4
