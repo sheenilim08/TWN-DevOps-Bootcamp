@@ -1,0 +1,8 @@
+cd app
+scp bootcamp-node-project-1.0.0.tgz sheenlim08@192.168.1.249:/home/sheenlim08/
+
+# extract the compressed file on the remote server
+tar -xvf bootcamp-node-project-1.0.0.tgz
+
+cd package
+npm install

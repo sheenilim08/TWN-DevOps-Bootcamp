@@ -1,0 +1,2 @@
+# At the time of this excercise DigitalOcean has blocked my account for 2 days now just after I registered, saying my account has been match unusual activitiy.
+# for I am using a local VM for now.

@@ -1,0 +1,5 @@
+git clone https://gitlab.com/devops-bootcamp3/node-project
+git remote remove origin
+git remote add origin git@github.com:sheenilim08/node-project.git
+git push
+git push --set-upstream origin master

@@ -1,0 +1,5 @@
+# Updated file java-gradle-app/src/test/java/AppTest
+# from "boolean result = myApp.getCondition("true");"
+# to "boolean result = myApp.getCondition(true);"
+
+./gradlew test

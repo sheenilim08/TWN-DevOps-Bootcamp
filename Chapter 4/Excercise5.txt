@@ -1,0 +1,31 @@
+# copied code snippet from Excercises page for Excercise 5.
+
+./gradlew clean
+./gradlew build
+
+java -jar build/libs/bootcamp-java-project-1.0-SNAPSHOT.jar "test1" "test2"
+
+# output below:
+sheenlim08@lpt-linuxmint01:~/Learning/java-gradle-app$ java -jar build/libs/bootcamp-java-project-1.0-SNAPSHOT.jar "test1" "test2"
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.2.RELEASE)
+
+2023-03-26 17:35:43.401  INFO 73510 --- [           main] com.example.Application                  : Starting Application on lpt-linuxmint01 with PID 73510 (/home/sheenlim08/Learning/java-gradle-app/build/libs/bootcamp-java-project-1.0-SNAPSHOT.jar started by sheenlim08 in /home/sheenlim08/Learning/java-gradle-app)
+2023-03-26 17:35:43.417  INFO 73510 --- [           main] com.example.Application                  : No active profile set, falling back to default profiles: default
+2023-03-26 17:35:44.845  INFO 73510 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-26 17:35:44.867  INFO 73510 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-26 17:35:44.867  INFO 73510 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2023-03-26 17:35:44.964  INFO 73510 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-26 17:35:44.964  INFO 73510 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1443 ms
+2023-03-26 17:35:45.046  INFO 73510 --- [           main] com.example.Application                  : Java app started
+2023-03-26 17:35:45.281  INFO 73510 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-03-26 17:35:45.390  INFO 73510 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: ServletContext resource [/index.html]
+2023-03-26 17:35:45.567  INFO 73510 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-26 17:35:45.570  INFO 73510 --- [           main] com.example.Application                  : Started Application in 2.811 seconds (JVM running for 3.42)
+2023-03-26 17:35:45.572  INFO 73510 --- [           main] com.example.Application                  : Application will start with the parameters test1 and test2

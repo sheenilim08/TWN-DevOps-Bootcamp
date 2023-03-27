@@ -1,0 +1,20 @@
+# on the VM,
+
+# Download the latest Node LTS Package
+wget https://nodejs.org/dist/v18.15.0/node-v18.15.0-linux-x64.tar.xz
+
+# Extract the compressed file
+tar -xvf node-v18.15.0-linux-x64.tar.xz
+
+# Append the bin folder to the /etc/environment
+# as in "PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/sheenlim08/node-v18.13.0-linux-x64/bin:/home/sheenlim08/node-v18.15.0-linux-x64/bin/"
+
+# Re-evaluate the /etc/environment
+source /etc/environment
+
+# Sample Output:
+sheenlim08@DevOps1:~$ npm -v
+9.5.0
+sheenlim08@DevOps1:~$ node -v
+v18.15.0
+sheenlim08@DevOps1:~$

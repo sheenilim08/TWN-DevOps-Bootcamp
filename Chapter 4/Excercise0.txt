@@ -1,0 +1,5 @@
+git clone https://gitlab.com/devops-bootcamp3/java-gradle-app
+git remote remove origin
+git remote add origin git@github.com:sheenilim08/java-gradle-app.git
+git push
+git push --set-upstream origin master
