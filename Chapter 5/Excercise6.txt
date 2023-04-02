@@ -1,1 +1,1 @@
-# Unapplicable on my current situation but its just a firewall thing.
+# Added port TCP/3000 in Droplet firewall

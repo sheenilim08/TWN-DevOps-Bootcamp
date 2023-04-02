@@ -1,0 +1,6 @@
+# 1. create the artifact, npm pack
+# 2. set the npm registry, npm config set registry http://192.168.1.249:8081/repository/NPM-HOSTED/
+# 3. create the credential hash, echo -n "npm-project1-team:Welcome123!" | openssl base64
+# output is bnBtLXByb2plY3QxLXRlYW06V2VsY29tZTEyMyE=
+# 4. set the npm authnentication, npm config set _auth bnBtLXByb2plY3QxLXRlYW06V2VsY29tZTEyMyE=
+# 5. publish npm publish --registry=http://192.168.1.249:8081/repository/NPM-HOSTED/ ./react-nodejs-example-1.0.0.tgz

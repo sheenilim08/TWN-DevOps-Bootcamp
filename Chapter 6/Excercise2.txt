@@ -1,0 +1,4 @@
+# 1. Clicked "Server Administration and configuration" > Repository > Repositories > Create repository.
+# 2. selected "npm (hosted)"
+# 3. Provided name "NPM-HOSTED" and selected "test" blob store.
+# 4. Clicked "Create repository"

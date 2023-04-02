@@ -1,0 +1,18 @@
+# 1. Clicked "Server Administration and configuration" > Security > Role > Create Role
+# 2. Type: Nexus Role, Role ID and Role Name: "npmmaven-role"
+# 3. Privileges: "nx-repository-view-maven2-maven-hosted-*" and "nx-repository-view-npm-hosted-*"
+# 4. Clicked "Server Administration and configuration" > Security > Users > Create User
+# 5. user id: npmmaven-user, First Name: NPMMAVEN, Last Name: User, email: sheenismhael.liM@outlook.ph, status: active, roles: "npmmaven-role"
+# 6. Save
+
+# On my computer, issued 
+# curl -u npmmaven-user:@dm1n@local.net -X GET 'http://192.168.1.249:8081/service/rest/v1/components?repository=NPM-HOSTED&sort=version'
+
+# 7. Downloaded tarball. "wget --http-user=npmmaven-user --http-password=@dm1n@local.net http://192.168.1.249:8081/repository/NPM-HOSTED/react-nodejs-example/-/react-nodejs-example-1.0.0.tgz"
+# 8. Extract the tarbat "tar -xvf react-nodejs-example-1.0.0.tgz"
+# 9. install npm packages
+# "cd packages"
+" "npm install --registry=https://registry.npmjs.org"
+
+# 10. ran server "node server.js"
+# sudo bash -c "/home/sheenlim08/node-v18.13.0-linux-x64/bin/node /home/sheenlim08/package/server.js"

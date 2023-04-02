@@ -1,0 +1,2 @@
+# updated credential section of build.gradle (to target the repository) and gradle.properties (for credentials)
+# ran ./gradelw publish

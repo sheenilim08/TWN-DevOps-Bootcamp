@@ -1,0 +1,6 @@
+# 1. Clicked "Server Administration and configuration" > Security > Role > Create Role
+# 2. Type: Nexus Role, Role ID and Role Name: "npm-repo-user"
+# 3. Privileges: "nx-repository-view-npm-NPM-HOSTED-*"
+# 4. Clicked "Server Administration and configuration" > Security > Users > Create User
+# 5. userid: npm-project1-team, First Name: Project 1, Last Name: NPM, email: sheenismhael.liM@outlook.ph, status: active, roles: npm-repo-user
+# 6. Save

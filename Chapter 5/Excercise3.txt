@@ -13,8 +13,8 @@ tar -xvf node-v18.15.0-linux-x64.tar.xz
 source /etc/environment
 
 # Sample Output:
-sheenlim08@DevOps1:~$ npm -v
+sheenlim08@ubuntu-s-1vcpu-1gb-blr1-01:~$ npm -v
 9.5.0
-sheenlim08@DevOps1:~$ node -v
+sheenlim08@ubuntu-s-1vcpu-1gb-blr1-01:~$ node -v
 v18.15.0
-sheenlim08@DevOps1:~$
+sheenlim08@ubuntu-s-1vcpu-1gb-blr1-01:~$
