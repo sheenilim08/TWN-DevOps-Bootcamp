@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  node-project-app:
+    image: ${IMAGE}
+    ports:
+      - 8080:8080

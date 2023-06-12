@@ -1,0 +1,1 @@
+docker run -d --name=phpmyadmin -p 8081:80 --link mysql:db -e MYSQL_USER=sheen -e MYSQL_PASSWORD=@dm1n@local.net -e MYSQL_ROOT_PASSWORD=@dm1n@local.net phpmyadmin:5.2.1-apache

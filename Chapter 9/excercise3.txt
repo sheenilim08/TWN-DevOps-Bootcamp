@@ -1,0 +1,104 @@
+aws ec2 create-vpc --cidr-block 172.32.0.0/16
+{
+    "Vpc": {
+        "CidrBlock": "172.32.0.0/16",
+        "DhcpOptionsId": "dopt-0556ae19856213c03",
+        "State": "pending",
+        "VpcId": "vpc-09dddeb948387f351",
+        "OwnerId": "951865328368",
+        "InstanceTenancy": "default",
+        "Ipv6CidrBlockAssociationSet": [],
+        "CidrBlockAssociationSet": [
+            {
+                "AssociationId": "vpc-cidr-assoc-0b5184b94ecbbfe52",
+                "CidrBlock": "172.32.0.0/16",
+                "CidrBlockState": {
+                    "State": "associated"
+                }
+            }
+        ],
+        "IsDefault": false
+    }
+}
+
+aws ec2 create-subnet --vpc-id vpc-09dddeb948387f351 --cidr-block 172.32.0.0/24
+{
+    "Subnet": {
+        "AvailabilityZone": "ap-southeast-2c",
+        "AvailabilityZoneId": "apse2-az2",
+        "AvailableIpAddressCount": 251,
+        "CidrBlock": "172.32.0.0/24",
+        "DefaultForAz": false,
+        "MapPublicIpOnLaunch": false,
+        "State": "available",
+        "SubnetId": "subnet-08301ec90e85d0068",
+        "VpcId": "vpc-09dddeb948387f351",
+        "OwnerId": "951865328368",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "SubnetArn": "arn:aws:ec2:ap-southeast-2:951865328368:subnet/subnet-08301ec90e85d0068",
+        "EnableDns64": false,
+        "Ipv6Native": false,
+        "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "ip-name",
+            "EnableResourceNameDnsARecord": false,
+            "EnableResourceNameDnsAAAARecord": false
+        }
+    }
+}
+
+aws ec2 create-security-group --group-name excercise3-allow-port22 --vpc-id vpc-09dddeb948387f351 --description "Allow port 22"
+{
+    "GroupId": "sg-08daa4dcd7530c4a9"
+}
+
+aws ec2 authorize-security-group-ingress --group-id sg-08daa4dcd7530c4a9 --protocol tcp --port 22 --cidr 180.195.246.30/32
+{
+    "Return": true,
+    "SecurityGroupRules": [
+        {
+            "SecurityGroupRuleId": "sgr-0cc119132fb03bfcf",
+            "GroupId": "sg-08daa4dcd7530c4a9",
+            "GroupOwnerId": "951865328368",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "CidrIpv4": "180.195.246.30/32"
+        }
+    ]
+}
+
+aws ec2 authorize-security-group-ingress --group-id sg-08daa4dcd7530c4a9 --protocol tcp --port 443 --cidr 180.195.246.30/32
+{
+    "Return": true,
+    "SecurityGroupRules": [
+        {
+            "SecurityGroupRuleId": "sgr-060ac28587f915f3a",
+            "GroupId": "sg-08daa4dcd7530c4a9",
+            "GroupOwnerId": "951865328368",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "CidrIpv4": "180.195.246.30/32"
+        }
+    ]
+}
+
+aws ec2 authorize-security-group-ingress --group-id sg-08daa4dcd7530c4a9 --protocol tcp --port 80 --cidr 180.195.246.30/32
+{
+    "Return": true,
+    "SecurityGroupRules": [
+        {
+            "SecurityGroupRuleId": "sgr-0de713e22f55a0ab2",
+            "GroupId": "sg-08daa4dcd7530c4a9",
+            "GroupOwnerId": "951865328368",
+            "IsEgress": false,
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "CidrIpv4": "180.195.246.30/32"
+        }
+    ]
+}

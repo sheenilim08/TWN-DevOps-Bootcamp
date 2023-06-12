@@ -1,0 +1,15 @@
+# Created Container
+docker run -d -p 3306:3306 -e MYSQL_USER="sheen" -e MYSQL_PASSWORD="@dm1n@local.net" -e MYSQL_ROOT_PASSWORD="@dm1n@local.net" -e MYSQL_DATABASE="my_db" --name="mysql" mysql:8.0.32-oracle
+
+# exported ENVs
+
+export DB_USER=sheen
+export DB_PWD=@dm1n@local.net
+export DB_NAME=my_db
+export DB_SERVER=localhost
+
+./gradlew clean
+./gradlew build
+
+cd build/libs
+java -jar bootcamp-java-mysql-project-1.0-SNAPSHOT.jar

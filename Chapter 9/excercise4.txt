@@ -1,0 +1,18 @@
+# create the ssh key-pair
+aws ec2 create-key-pair --key-name excercise4-cli --query 'KeyMaterial' --output text > excercise4-cli.pem
+
+# Create internet gateway, this will be the internet access for all endpoints in the new VPC
+aws ec2 create-internet-gateway
+
+# Attach the internet gateway to the vpc
+aws ec2 attach-internet-gateway --internet-gateway-id igw-0bd7b5b7a1342233b --vpc-id vpc-09dddeb948387f351
+
+# add a default route 
+# when creating a VPC, a default route table is also created for the associated cidr block of that vpc
+aws ec2 create-route --route-table-id rtb-006a12f3bbf5c87cf --destination-cidr-block 0.0.0.0/0 --gateway-id igw-0bd7b5b7a1342233b
+
+# edit the subnet so that it assigns public ip a new endpoint
+aws ec2 modify-subnet-attribute --subnet-id subnet-08301ec90e85d0068 --map-public-ip-on-launch
+
+# create a ec2
+aws ec2 run-instances --count 1 --instance-type t2.micro --key-name excercise4-cli --subnet-id subnet-08301ec90e85d0068 --security-group-ids sg-08daa4dcd7530c4a9 --image-id ami-06ddbc40823fba89a

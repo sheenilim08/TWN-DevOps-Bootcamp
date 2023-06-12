@@ -1,0 +1,2 @@
+docker build -t 170.64.170.203:8083/itfellas:node-project-1.2.0-15 .
+docker push 170.64.170.203:8083/itfellas:node-project-1.2.0-15

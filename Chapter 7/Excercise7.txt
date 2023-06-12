@@ -1,0 +1,10 @@
+scp -i ~/.ssh/id_rsa.pub Excercise6.yaml 192.168.1.248:/home/sheenlim08
+
+sudo su -
+cd /home/sheenlim08
+
+# on the remote server:
+# added insecure regisry "insecure-regitries": ["192.168.1.249:8083"] to /etc/docker/daemon.json
+# restarted docker daemon
+
+docker compose -f Excercise6.yaml up

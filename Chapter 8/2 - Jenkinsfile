@@ -1,0 +1,55 @@
+library identifier: 'node-project-sharedlibrary@main', retriever: modernSCM(
+    [
+        $class: 'GitSCMSource',
+        remote: 'git@gitlab.com:sheenilim08/node-project-sharedlibrary.git',
+        credentialsId: 'gitlab-ssh'
+    ]
+)
+
+pipeline {
+  agent any
+  stages {
+    stage('increment version') {
+      steps {
+        script {
+          dir('app') {
+            incrementVersion()
+          }
+        }
+      }
+    }
+
+    stage('run test') {
+      steps {
+        script {
+          dir('app') {
+            runTest()
+          }
+        }
+      }
+    }
+
+    stage('build and push to docker hub') {
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials.', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            def imageTag = "sheenismhaellim/itfellas:node-project-$IMAGE_NAME"
+            dockerBuild(imageTag)
+            dockerHubLogin()
+            dockerHubPush(imageTag)
+          }
+        }
+      }
+    }
+
+    stage('Commit code to repo') {
+      steps {
+        script {
+          sshagent(credentials: ['gitlab-ssh']) {
+            gitCommit()
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# rule for NodeJS app
+aws ec2 authorize-security-group-ingress --group-id sg-08daa4dcd7530c4a9 --protocol tcp --port 8080 --cidr 180.195.246.30/32
+
+# allow push from jenkins server in digital ocean
+aws ec2 authorize-security-group-ingress --group-id sg-08daa4dcd7530c4a9 --protocol tcp --port 22 --cidr 170.64.170.203/32

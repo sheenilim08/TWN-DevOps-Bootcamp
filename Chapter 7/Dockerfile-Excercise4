@@ -1,0 +1,21 @@
+FROM ibmjava:8-jre
+
+ENV DB_USER=sheen \
+    DB_PWD=@dm1n@local.net \
+    DB_NAME=my_db \
+    DB_SERVER=mysql
+
+RUN mkdir -p /home/node-app
+
+COPY . /home/node-app
+
+# set default dir so that next commands executes in /home/app dir
+WORKDIR /home/node-app
+
+# will execute npm install in /home/app because of WORKDIR
+RUN ./gradlew build
+
+WORKDIR /home/node-app/build/libs
+
+# no need for /home/app/server.js because of WORKDIR
+CMD ["java", "-jar", "bootcamp-java-mysql-project-1.0-SNAPSHOT.jar"]

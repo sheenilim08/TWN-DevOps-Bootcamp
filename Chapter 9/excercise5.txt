@@ -1,0 +1,8 @@
+# connect to ec2 instance
+ssh ec2-user@3.104.104.112 -i excercise4-cli.pem
+
+# install docker
+yum install docker
+
+# add ec2-user to docker group
+sudo usermod -aG docker ec2-user

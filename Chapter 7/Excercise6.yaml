@@ -1,0 +1,50 @@
+version: '3'
+services:
+  bjm:
+    image: 192.168.1.249:8083/bjm:1.0
+    restart: always
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PWD=${DB_PWD}
+      - DB_NAME=${DB_NAME}
+      - DB_SERVER=${PMA_HOST}
+    ports:
+     - 8080:8080
+    container_name: bjm
+    depends_on:
+     - "mysql"
+  mysql:
+    image: mysql:8.0.32-oracle
+    ports:
+     - 3306:3306
+    environment:
+     - MYSQL_USER=${DB_USER}
+     - MYSQL_PASSWORD=${DB_PWD}
+     - MYSQL_ROOT_PASSWORD=${DB_ROOT}
+     - MYSQL_DATABASE=${DB_NAME}
+    container_name: mysql
+    volumes:
+    - mysql-data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin:5.2.1-apache
+    restart: always
+    ports:
+     - 8081:80
+    environment:
+     - MYSQL_USER=${DB_USER}
+     - MYSQL_PASSWORD=${DB_PWD}
+     - MYSQL_ROOT_PASSWORD=${DB_ROOT}
+     - PMA_HOST=${PMA_HOST}
+     - PMA_PORT=${PMA_PORT}
+    container_name: phpmyadmin
+    depends_on:
+     - "mysql"
+volumes:
+  mysql-data:
+    driver: local
+# export DB_USER=sheen
+# export DB_PWD=@dm1n@local.net
+# export DB_ROOT=@dm1n@local.net
+# export DB_NAME=my_db
+# export PMA_HOST=mysql
+# export PMA_PORT=3306

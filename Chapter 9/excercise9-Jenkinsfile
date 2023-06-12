@@ -1,0 +1,90 @@
+library identifier: 'node-project-sharedlibrary@main', retriever: modernSCM(
+    [
+        $class: 'GitSCMSource',
+        remote: 'git@gitlab.com:sheenilim08/node-project-sharedlibrary.git',
+        credentialsId: 'gitlab-ssh'
+    ]
+)
+
+def imageTag = "sheenismhaellim/itfellas:node-project"
+
+pipeline {
+  agent any
+  stages {
+    stage('increment version') {
+      when {
+        expression {
+          env.BRANCH_NAME == "master"
+        }
+      }
+      steps {
+        script {
+          dir('app') {
+            incrementVersion()
+          }
+        }
+      }
+    }
+
+    stage('run test') {
+      steps {
+        script {
+          dir('app') {
+            runTest()
+          }
+        }
+      }
+    }
+
+    stage('build and push to docker hub') {
+      when {
+        expression {
+          env.BRANCH_NAME == "master"
+        }
+      }
+      steps {
+        script {
+          withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials.', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            imageTag = "sheenismhaellim/itfellas:node-project-${IMAGE_NAME}"
+            dockerBuild(imageTag)
+            dockerHubLogin()
+            dockerHubPush(imageTag)
+          }
+        }
+      }
+    }
+
+    stage('deploy to EC2') {
+      when {
+        expression {
+          env.BRANCH_NAME == "master"
+        }
+      }
+      steps {
+        script {
+          def serverCmds = "bash ./server-cmd.sh ${imageTag}"
+          sshagent(['excercise4-cli docker server']) {
+            sh 'scp -o StrictHostKeyChecking=no server-cmd.sh ec2-user@3.104.104.112:/home/ec2-user'
+            sh 'scp -o StrictHostKeyChecking=no docker-compose.yaml ec2-user@3.104.104.112:/home/ec2-user'
+            sh "ssh -o StrictHostKeyChecking=no ec2-user@3.104.104.112 ${serverCmds}"
+          }
+        }
+      }
+    }
+
+    stage('Commit code to repo') {
+      when {
+        expression {
+          env.BRANCH_NAME == "master"
+        }
+      }
+      steps {
+        script {
+          sshagent(credentials: ['gitlab-ssh']) {
+            gitCommit()
+          }
+        }
+      }
+    }
+  }
+}
