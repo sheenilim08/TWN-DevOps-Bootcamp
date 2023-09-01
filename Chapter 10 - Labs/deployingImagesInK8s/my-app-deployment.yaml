@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      imagePullSecrets:
+      - name: do-container-registry
+      containers:
+      - name: my-app
+        image: registry.digitalocean.com/twn-myapp/my-app:v1.3
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 3000
